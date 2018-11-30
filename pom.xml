@@ -8,7 +8,6 @@
   <name>dropwizard-https-redirect</name>
   <description>A small dropwizard bundle which will redirect any income HTTP requests to the equivalent HTTPS URL.</description>
 
-
   <properties>
     <min.maven.version>3.0.0</min.maven.version>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -16,7 +15,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <dropwizard.version>1.3.7</dropwizard.version>
+    <dropwizard.version>[1.0.0,2.0.0)</dropwizard.version>
+    <apache.commons.version>[4.0,5.0)</apache.commons.version>
+
     <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
     <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
     <maven-surefire-plugin-version>2.22.1</maven-surefire-plugin-version>
@@ -24,8 +25,10 @@
     <findbugs-maven-plugin.version>3.0.4</findbugs-maven-plugin.version>
     <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
     <checkstyle.version>8.12</checkstyle.version>
+
     <mockito.version>1.10.19</mockito.version>
     <hamcrest.version>1.3</hamcrest.version>
+    <junit.version>4.12</junit.version>
   </properties>
 
   <dependencies>
@@ -33,6 +36,18 @@
       <groupId>io.dropwizard</groupId>
       <artifactId>dropwizard-core</artifactId>
       <version>${dropwizard.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-collections4</artifactId>
+      <version>${apache.commons.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
