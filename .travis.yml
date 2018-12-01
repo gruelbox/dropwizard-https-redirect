@@ -10,17 +10,17 @@ jobs:
     - if: repo = gruelbox/dropwizard-https-redirect AND branch = master AND NOT type = pull_request
       name: "Test"
       script:
-        - git fetch --unshallow --quiet
+#        - git fetch --unshallow --quiet
         - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent test sonar:sonar -Pcoverage-per-test -B -U
     - if: repo = gruelbox/dropwizard-https-redirect AND NOT branch = master AND NOT type = pull_request
       name: "Test"
       script:
-        - git fetch --unshallow --quiet
+#        - git fetch --unshallow --quiet
         - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent test sonar:sonar -Pcoverage-per-test -B -U -Dsonar.branch.name=$TRAVIS_BRANCH
     - if: repo = gruelbox/dropwizard-https-redirect AND head_repo = gruelbox/dropwizard-https-redirect AND type = pull_request
       name: "Test"
       script:
-        - git fetch --unshallow --quiet
+#        - git fetch --unshallow --quiet
         - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent test sonar:sonar -Pcoverage-per-test -B -U -Dsonar.pullrequest.key=$TRAVIS_PULL_REQUEST -Dsonar.pullrequest.branch=$TRAVIS_PULL_REQUEST_BRANCH -Dsonar.pullrequest.base=$TRAVIS_BRANCH
     - if: repo = gruelbox/dropwizard-https-redirect AND (branch = master OR tag IS present) AND NOT type = pull_request
       name: "Deploy"
