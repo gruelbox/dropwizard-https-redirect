@@ -6,4 +6,4 @@ A small dropwizard bundle which will redirect any income HTTP requests to the eq
 
 ## Usage
 
-TODO
+On the way, just waiting for Maven approval
