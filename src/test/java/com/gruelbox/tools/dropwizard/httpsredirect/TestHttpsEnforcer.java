@@ -28,7 +28,10 @@ import java.io.IOException;
 import java.util.Enumeration;
 
 import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -37,6 +40,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.verification.VerificationAfterDelay;
 
 public class TestHttpsEnforcer {
   
@@ -44,6 +48,7 @@ public class TestHttpsEnforcer {
   private static final String STRICT_CONTENT_SECURITY = "Strict-Transport-Security";
   private static final String CONTENT_SECURITY_HEADER = "max-age=63072000; includeSubDomains; preload";
 
+  @Mock private FilterConfig filterConfig;
   @Mock private HttpServletRequest request;
   @Mock private HttpServletResponse response;
   @Mock private FilterChain filterChain;
@@ -51,6 +56,22 @@ public class TestHttpsEnforcer {
   @Before
   public void setup() {
     MockitoAnnotations.initMocks(this);
+  }
+  
+  @Test
+  public void testNoInit() throws IOException, ServletException {
+    HttpsEnforcer httpsEnforcer = new HttpsEnforcer(HttpsResponsibility.HTTPS_DIRECT);
+    httpsEnforcer.init(filterConfig);
+    Mockito.verifyZeroInteractions(filterConfig);
+  }
+  
+  @Test
+  public void testNonHttpRequest() throws IOException, ServletException {
+    HttpsEnforcer httpsEnforcer = new HttpsEnforcer(HttpsResponsibility.HTTPS_DIRECT);
+    ServletRequest servletRequest = Mockito.mock(ServletRequest.class);
+    ServletResponse servletResponse = Mockito.mock(ServletResponse.class);
+    httpsEnforcer.doFilter(servletRequest, servletResponse, filterChain);
+    Mockito.verifyZeroInteractions(servletRequest, servletResponse, filterChain);
   }
 
   @Test

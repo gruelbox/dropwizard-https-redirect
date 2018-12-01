@@ -50,6 +50,7 @@ public final class HttpsEnforcer implements Filter {
   
   private static final Logger LOGGER = LoggerFactory.getLogger(HttpsEnforcementBundle.class);
   
+  private static final String HTTPS = "https";
   private static final String X_FORWARDED_PROTO = "X-Forwarded-Proto";
   private static final String STRICT_CONTENT_SECURITY = "Strict-Transport-Security";
   
@@ -91,14 +92,14 @@ public final class HttpsEnforcer implements Filter {
               "Configured to assume application is behind a proxy but the forward header has not been provided. "
                   + "Headers available: " + listForRequest(request).toList());
         }
-        if (!request.getHeader(X_FORWARDED_PROTO).equalsIgnoreCase("https")) {
+        if (!request.getHeader(X_FORWARDED_PROTO).equalsIgnoreCase(HTTPS)) {
           switchToHttps(request, response);
           return;
         }
         break;
       case HTTPS_DIRECT:
         if (!request.isSecure()) {
-          if (request.getProtocol().equalsIgnoreCase("https")) {
+          if (request.getProtocol().equalsIgnoreCase(HTTPS)) {
             throw new IllegalStateException(
                 "Configured to assume application is accessed directly but connection is not secure and "
                     + "protocol is already https");
@@ -120,7 +121,7 @@ public final class HttpsEnforcer implements Filter {
     
     // Reform the URL
     final StringBuffer url = new StringBuffer(128);
-    URIUtil.appendSchemeHostPort(url, "https", request.getServerName(), request.getServerPort() == 80 ? 443 : request.getServerPort());
+    URIUtil.appendSchemeHostPort(url, HTTPS, request.getServerName(), request.getServerPort() == 80 ? 443 : request.getServerPort());
     url.append(request.getRequestURI());
     if (request.getQueryString() != null) {
       url.append("?");
