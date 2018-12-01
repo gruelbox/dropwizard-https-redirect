@@ -3,7 +3,7 @@
   
   <groupId>com.gruelbox</groupId>
   <artifactId>dropwizard-https-redirect</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2-SNAPSHOT</version>
   
   <name>${project.groupId}:${project.artifactId}</name>
   <description>A small dropwizard bundle which will redirect any income HTTP requests to the equivalent HTTPS URL.</description>
@@ -287,7 +287,7 @@
     <connection>scm:git:https://github.com/gruelbox/dropwizard-https-redirect.git</connection>
     <developerConnection>scm:git:git@github.com:gruelbox/dropwizard-https-redirect.git</developerConnection>
     <url>https://github.com/gruelbox/dropwizard-https-redirect</url>
-    <tag>0.0.1</tag>
+    <tag>HEAD</tag>
   </scm>
   
   <distributionManagement>
