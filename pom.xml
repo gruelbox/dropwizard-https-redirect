@@ -302,4 +302,9 @@
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
+  
+  <ciManagement>
+    <system>Travis CI</system>
+    <url>https://travis-ci.org/gruelbox/dropwizard-https-redirect</url>
+  </ciManagement>
 </project>
