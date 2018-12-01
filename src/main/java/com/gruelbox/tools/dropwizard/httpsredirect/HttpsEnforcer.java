@@ -48,7 +48,7 @@ import com.google.common.collect.FluentIterable;
  */
 public final class HttpsEnforcer implements Filter {
   
-  private static final Logger LOGGER = LoggerFactory.getLogger(HttpsEnforcementBundle.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(HttpsEnforcer.class);
   
   private static final String HTTPS = "https";
   private static final String X_FORWARDED_PROTO = "X-Forwarded-Proto";
