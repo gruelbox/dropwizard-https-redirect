@@ -3,4 +3,4 @@ dist: trusty
 jdk:
   - oraclejdk8
 script:
-  - mvn clean install
+  - mvn versions:resolve-ranges clean install

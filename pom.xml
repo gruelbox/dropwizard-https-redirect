@@ -2,12 +2,20 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  
   <groupId>com.gruelbox</groupId>
   <artifactId>dropwizard-https-redirect</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
   <name>dropwizard-https-redirect</name>
   <description>A small dropwizard bundle which will redirect any income HTTP requests to the equivalent HTTPS URL.</description>
-
+  <inceptionYear>2018</inceptionYear>
+ 
+  <organization>
+    <name>Graham Crockford</name>
+    <url>https://github.com/gruelbox/dropwizard-https-redirect</url>
+  </organization>
+  
   <properties>
     <min.maven.version>3.0.0</min.maven.version>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -20,7 +28,10 @@
 
     <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
     <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
-    <maven-surefire-plugin-version>2.22.1</maven-surefire-plugin-version>
+    <maven-javadoc-plugin.version>2.9.1</maven-javadoc-plugin.version>
+    <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+    <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+    <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
     <license.maven.plugin.version>1.16</license.maven.plugin.version>
     <findbugs-maven-plugin.version>3.0.4</findbugs-maven-plugin.version>
     <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
@@ -72,6 +83,54 @@
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven.jar.plugin.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven.surefire.plugin.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${maven-javadoc-plugin.version}</version>
+        <configuration>
+          <failOnError>true</failOnError>
+          <quiet>true</quiet>
+        </configuration>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>${maven-release-plugin.version}</version>
+        <configuration>
+          <tagNameFormat>@{project.version}</tagNameFormat>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>${maven-source-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
