@@ -1,7 +1,4 @@
 language: java
-dist: trusty
 jdk:
+  - openjdk8
   - oraclejdk8
-install: true
-script:
-  - mvn versions:resolve-ranges clean install
