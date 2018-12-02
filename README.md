@@ -1,4 +1,4 @@
-# dropwizard-https-redirect
+# Dropwizard HTTPS redirection bundle
 
 [![Build Status](https://travis-ci.org/gruelbox/dropwizard-https-redirect.svg?branch=master)](https://travis-ci.org/gruelbox/dropwizard-https-redirect)
 [![Sonarcloud Security Rating](https://sonarcloud.io/api/project_badges/measure?project=com.gruelbox%3Adropwizard-https-redirect&metric=security_rating)](https://sonarcloud.io/dashboard?id=com.gruelbox%3Adropwizard-https-redirect)
