@@ -22,6 +22,7 @@ package com.gruelbox.tools.dropwizard.httpsredirect;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
 import java.io.IOException;
@@ -40,7 +41,6 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.verification.VerificationAfterDelay;
 
 public class TestHttpsEnforcer {
   
@@ -62,7 +62,7 @@ public class TestHttpsEnforcer {
   public void testNoInit() throws IOException, ServletException {
     HttpsEnforcer httpsEnforcer = new HttpsEnforcer(HttpsResponsibility.HTTPS_DIRECT);
     httpsEnforcer.init(filterConfig);
-    Mockito.verifyZeroInteractions(filterConfig);
+    verifyZeroInteractions(filterConfig);
   }
   
   @Test
@@ -71,7 +71,7 @@ public class TestHttpsEnforcer {
     ServletRequest servletRequest = Mockito.mock(ServletRequest.class);
     ServletResponse servletResponse = Mockito.mock(ServletResponse.class);
     httpsEnforcer.doFilter(servletRequest, servletResponse, filterChain);
-    Mockito.verifyZeroInteractions(servletRequest, servletResponse, filterChain);
+    verifyZeroInteractions(servletRequest, servletResponse, filterChain);
   }
 
   @Test
