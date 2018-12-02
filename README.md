@@ -31,7 +31,7 @@ The `isHttpsOnly()` property enables or disables the redirection.  It usually ma
 The `getHttpResponsibility()` property is extremely important:
 
  - If your application is exposed directly to the internet without any sort of proxy (so your application manages its own SSL certificates) set this to `HTTPS_DIRECT`.  The bundle will check the servlet request directly to ensure that it is secure.
- - If your application is hosted behind a proxy, and the proxy is managing the SSL side of things and forwarding both HTTP and HTTPS to your application as plain old HTTP (common with applications such as [Heroku](https://www.heroku.com/)), we have to rely on the proxy to tell us what the original protocol was using the `X-Forwarded-Proto` header.  Most proxies do this, but _do check yours_.  To enabled this, use `HTTPS_AT_PROXY`.
+ - If your application is hosted behind a proxy, and the proxy is managing the SSL side of things and forwarding both HTTP and HTTPS to your application as plain old HTTP (common with platforms such as [Heroku](https://www.heroku.com/)), we have to rely on the proxy to tell us what the original protocol was using the `X-Forwarded-Proto` header.  Most proxies do this, but _do check yours_.  To enabled this, use `HTTPS_AT_PROXY`.
  
 ### Install the bundle
 
