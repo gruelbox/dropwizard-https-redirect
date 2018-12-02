@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/gruelbox/dropwizard-https-redirect.svg?branch=master)](https://travis-ci.org/gruelbox/dropwizard-https-redirect)
 [![Sonarcloud Security Rating](https://sonarcloud.io/api/project_badges/measure?project=com.gruelbox%3Adropwizard-https-redirect&metric=security_rating)](https://sonarcloud.io/dashboard?id=com.gruelbox%3Adropwizard-https-redirect)
+[![Sonarcloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=com.gruelbox%3Adropwizard-https-redirect&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=com.gruelbox%3Adropwizard-https-redirect)
 [![Sonarcloud Coverage](https://sonarcloud.io/api/project_badges/measure?project=com.gruelbox%3Adropwizard-https-redirect&metric=coverage)](https://sonarcloud.io/dashboard?id=com.gruelbox%3Adropwizard-https-redirect)
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=com.gruelbox%3Adropwizard-https-redirect&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.gruelbox%3Adropwizard-https-redirect)
 
