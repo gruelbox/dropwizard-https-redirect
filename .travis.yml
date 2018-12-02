@@ -5,6 +5,8 @@ addons:
     organization: "gruelbox"
     token:
       secure: "qF7IYWs+PkVwUogHer2btzMAlbQYBJ1rgYd3IyNHBjNFxXI2t1PyV7djOE7E8Nv0rOW/iQZxULQKRrFnebALFIpqWr5VpeuERwTd4sEPZWzjO2irKJvpsd+Rec8i3UOAXuLGe1mtfxj+cggxZDYSgUeQqGntKJAWmffiV6YwEOTEqkvShUN+kt7IW+WW9S4pbIM4znSNLklC5C3Gn25JVuLDIi3K3YL/PtFL0HDREhw2t4FeUb+gmmnjhBxC35Hi+DJTHmyEzuok3V2G0qrgd/9ZvwuP5wQgG1n104UjCZIhb1HfTQ24GGs6+Eb6dDX/AfbBTpsJuHkcGBJGHkP6sfa2dQ4rwE4bs4Ermb7VsKzxspUPw3E3SvSTc78jMW3/Bz0+PxmvPLbQ8SVD2GLR++quoH9qhE6iqxFNPagpprzl4qIl0N/mAPg6qSCwED4OhUXOzR2zdPVnuse4/eC19tyAPGN2VsB74EdgEvgBQrmZRDY6E0CtO6+yqmbEm+OKToCP+rYWRxXvjF5TMLHJIIzVobiO21tzlzvSPleuB1vJsWeKNMd2hmqjaMVZTjxgas35pS4Lx/QCG4TqNZ11awMuyqruAFFCOBXgMDT8GBXZllfae8InUh6kcX6pikSTV5/nBX9d9Oy6D5nm5SmlY0qFsB0AA8o0LZ15dHCszjg="
+notifications:
+  slack: gruelbox:KxlNRVRsbXFQkO94YtHSdAmS
 jobs:
   include:
     - if: repo = gruelbox/dropwizard-https-redirect AND branch = master AND NOT type = pull_request
