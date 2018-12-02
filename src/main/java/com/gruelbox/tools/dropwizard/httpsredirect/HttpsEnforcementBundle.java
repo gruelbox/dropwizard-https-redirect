@@ -25,6 +25,7 @@ import javax.servlet.FilterRegistration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import io.dropwizard.Application;
 import io.dropwizard.ConfiguredBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -32,11 +33,17 @@ import io.dropwizard.setup.Environment;
 /**
  * Dropwizard bundle which redirects any access to the application using the
  * {@code https://} protocol to the same location using the {@code https://} protocol.
- * 
+ *
  * <P>Usage:</p>
- * 
- * TODO
- * 
+ *
+ * <p>Modify your application configuration class so that it implements {@link HttpEnforcementConfiguration},
+ * then add the bundle in your {@link Application#initialize(Bootstrap)} method:</p>
+ *
+ * <pre> @Override
+ * public void initialize(final Bootstrap<MyConfiguration> bootstrap) {
+ *   bootstrap.addBundle(new HttpsEnforcementBundle());
+ * }</pre>
+ *
  * @author Graham Crockford
  */
 public class HttpsEnforcementBundle implements ConfiguredBundle<HttpEnforcementConfiguration> {

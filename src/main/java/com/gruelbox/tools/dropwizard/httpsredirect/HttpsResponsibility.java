@@ -22,7 +22,7 @@ package com.gruelbox.tools.dropwizard.httpsredirect;
 
 /**
  * Indicates how the application is deployed.
- * 
+ *
  * @author Graham Crockford
  */
 public enum HttpsResponsibility {
@@ -35,7 +35,9 @@ public enum HttpsResponsibility {
   HTTPS_AT_PROXY,
 
   /**
-   * The application is being accessed directly and is serving HTTPS itself.
+   * The application is exposed directly to the internet without any sort of proxy
+   * (the application manages its own SSL certificates). The bundle will check the
+   * servlet request directly to ensure that it is secure.
    */
   HTTPS_DIRECT
 }
