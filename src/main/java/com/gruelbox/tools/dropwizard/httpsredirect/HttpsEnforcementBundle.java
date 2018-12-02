@@ -40,7 +40,7 @@ import io.dropwizard.setup.Environment;
  * then add the bundle in your {@link Application#initialize(Bootstrap)} method:</p>
  *
  * <pre> @Override
- * public void initialize(final Bootstrap<MyConfiguration> bootstrap) {
+ * public void initialize(final Bootstrap&lt;MyConfiguration&gt; bootstrap) {
  *   bootstrap.addBundle(new HttpsEnforcementBundle());
  * }</pre>
  *
