@@ -5,6 +5,8 @@
 [![Sonarcloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=com.gruelbox%3Adropwizard-https-redirect&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=com.gruelbox%3Adropwizard-https-redirect)
 [![Sonarcloud Coverage](https://sonarcloud.io/api/project_badges/measure?project=com.gruelbox%3Adropwizard-https-redirect&metric=coverage)](https://sonarcloud.io/dashboard?id=com.gruelbox%3Adropwizard-https-redirect)
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=com.gruelbox%3Adropwizard-https-redirect&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.gruelbox%3Adropwizard-https-redirect)
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.gruelbox/dropwizard-https-redirect/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.gruelbox/dropwizard-https-redirect)
 [![Javadocs](https://www.javadoc.io/badge/com.gruelbox/dropwizard-https-redirect.svg?color=blue)](https://www.javadoc.io/doc/com.gruelbox/dropwizard-https-redirect)
 
 A small dropwizard bundle which will redirect any incoming HTTP requests to the equivalent HTTPS URL.  Handles both the cases where the application is hosting both HTTP and HTTPS directly or where it is sitting behind an SSL proxy and receiving all traffic as HTTP.
