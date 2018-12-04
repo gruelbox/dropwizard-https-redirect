@@ -46,3 +46,7 @@ In your `Application`, modify `initialise()`:
 ```
 
 That's it!
+
+## Credit
+
+The POM and Travis build borrow heavily from other projects. See [oss-archetype](https://github.com/gruelbox/oss-archetype#credit) for credits.
