@@ -1,24 +1,20 @@
-package com.gruelbox.tools.dropwizard.httpsredirect;
-
-/*-
- * ===============================================================================L
+/**
  * dropwizard-https-redirect
- * ================================================================================
- * Copyright (C) 2018 Graham Crockford
- * ================================================================================
+ * Copyright 2018-2019 Graham Crockford
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * ===============================================================================E
  */
+package com.gruelbox.tools.dropwizard.httpsredirect;
 
 import java.io.IOException;
 import java.util.regex.Pattern;
@@ -43,17 +39,17 @@ import com.google.common.collect.FluentIterable;
 /**
  * Servlet filter which redirects any access to the application using the
  * {@code https://} protocol to the same location using the {@code https://} protocol.
- * 
+ *
  * @author Graham Crockford
  */
 public final class HttpsEnforcer implements Filter {
-  
+
   private static final Logger LOGGER = LoggerFactory.getLogger(HttpsEnforcer.class);
-  
+
   private static final String HTTPS = "https";
   private static final String X_FORWARDED_PROTO = "X-Forwarded-Proto";
   private static final String STRICT_CONTENT_SECURITY = "Strict-Transport-Security";
-  
+
   private static final String CONTENT_SECURITY_HEADER = "max-age=63072000; includeSubDomains; preload";
   private static final Pattern CR_OR_LF = Pattern.compile("\\r|\\n");
 
@@ -65,7 +61,7 @@ public final class HttpsEnforcer implements Filter {
   public HttpsEnforcer(HttpsResponsibility httpsResponsibility) {
     this.httpsResponsibility = httpsResponsibility;
   }
-  
+
   @Override
   public void init(FilterConfig filterConfig) throws ServletException {
     // No-op
@@ -111,14 +107,14 @@ public final class HttpsEnforcer implements Filter {
       default:
         throw new UnsupportedOperationException("Unknown HTTP responsibility: " + httpsResponsibility);
     }
-    
+
     response.addHeader(STRICT_CONTENT_SECURITY, CONTENT_SECURITY_HEADER);
     filterChain.doFilter(request, response);
-    
+
   }
 
   private void switchToHttps(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    
+
     // Reform the URL
     final StringBuffer url = new StringBuffer(128);
     URIUtil.appendSchemeHostPort(url, HTTPS, request.getServerName(), request.getServerPort() == 80 ? 443 : request.getServerPort());
@@ -127,7 +123,7 @@ public final class HttpsEnforcer implements Filter {
       url.append("?");
       url.append(request.getQueryString());
     }
-    
+
     // Check against response split attacks
     String redirect = sanitize(url.toString());
     if (redirect == null) {
@@ -137,7 +133,7 @@ public final class HttpsEnforcer implements Filter {
     // All good
     LOGGER.error("Unsecured access (url={}) redirected to [{}]", request.getRequestURL(), redirect);
     response.sendRedirect(redirect);
-    
+
   }
 
   String sanitize(String url) {
@@ -147,8 +143,8 @@ public final class HttpsEnforcer implements Filter {
     }
     return url;
   }
-  
+
   private static FluentIterable<String> listForRequest(HttpServletRequest request) {
-    return FluentIterable.from(() -> new EnumerationIterator<String>(request.getHeaderNames()));
+    return FluentIterable.from(() -> new EnumerationIterator<>(request.getHeaderNames()));
   }
 }
