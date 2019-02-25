@@ -1,11 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.gruelbox</groupId>
   <artifactId>dropwizard-https-redirect</artifactId>
-  <version>0.0.4-SNAPSHOT</version>
+  <version>0.0.4</version>
 
   <name>${project.groupId}:${project.artifactId}</name>
   <description>A small dropwizard bundle which will redirect any income HTTP requests to the equivalent HTTPS URL.</description>
@@ -228,7 +226,7 @@
     <connection>scm:git:https://github.com/gruelbox/dropwizard-https-redirect.git</connection>
     <developerConnection>scm:git:git@github.com:gruelbox/dropwizard-https-redirect.git</developerConnection>
     <url>https://github.com/gruelbox/dropwizard-https-redirect</url>
-    <tag>HEAD</tag>
+    <tag>0.0.4</tag>
   </scm>
 
   <distributionManagement>
