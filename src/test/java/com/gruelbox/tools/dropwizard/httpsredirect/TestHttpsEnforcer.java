@@ -1,24 +1,20 @@
-package com.gruelbox.tools.dropwizard.httpsredirect;
-
-/*-
- * ===============================================================================L
+/**
  * dropwizard-https-redirect
- * ================================================================================
- * Copyright (C) 2018 Graham Crockford
- * ================================================================================
+ * Copyright 2018-2019 Graham Crockford
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * ===============================================================================E
  */
+package com.gruelbox.tools.dropwizard.httpsredirect;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -43,7 +39,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 public class TestHttpsEnforcer {
-  
+
   private static final String X_FORWARDED_PROTO = "X-Forwarded-Proto";
   private static final String STRICT_CONTENT_SECURITY = "Strict-Transport-Security";
   private static final String CONTENT_SECURITY_HEADER = "max-age=63072000; includeSubDomains; preload";
@@ -57,14 +53,14 @@ public class TestHttpsEnforcer {
   public void setup() {
     MockitoAnnotations.initMocks(this);
   }
-  
+
   @Test
   public void testNoInit() throws IOException, ServletException {
     HttpsEnforcer httpsEnforcer = new HttpsEnforcer(HttpsResponsibility.HTTPS_DIRECT);
     httpsEnforcer.init(filterConfig);
     verifyZeroInteractions(filterConfig);
   }
-  
+
   @Test
   public void testNonHttpRequest() throws IOException, ServletException {
     HttpsEnforcer httpsEnforcer = new HttpsEnforcer(HttpsResponsibility.HTTPS_DIRECT);
@@ -135,7 +131,7 @@ public class TestHttpsEnforcer {
     verify(response).sendRedirect("https://foo.com/here/and/there");
     verifyNoMoreInteractions(response, filterChain);
   }
-  
+
   @Test
   public void testProxiedRedirectPort80() throws IOException, ServletException {
     HttpsEnforcer httpsEnforcer = new HttpsEnforcer(HttpsResponsibility.HTTPS_AT_PROXY);
@@ -175,7 +171,7 @@ public class TestHttpsEnforcer {
     when(request.getQueryString()).thenReturn("do=this&do=that\nAHA I HAVE YOU NOW");
 
     httpsEnforcer.doFilter(request, response, filterChain);
-    
+
     verify(response).sendError(Mockito.eq(400), Mockito.anyString());
   }
 

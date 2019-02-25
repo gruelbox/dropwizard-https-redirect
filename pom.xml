@@ -1,104 +1,57 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  
+
   <groupId>com.gruelbox</groupId>
   <artifactId>dropwizard-https-redirect</artifactId>
   <version>0.0.4-SNAPSHOT</version>
-  
+
   <name>${project.groupId}:${project.artifactId}</name>
   <description>A small dropwizard bundle which will redirect any income HTTP requests to the equivalent HTTPS URL.</description>
   <inceptionYear>2018</inceptionYear>
   <url>https://github.com/gruelbox/dropwizard-https-redirect</url>
- 
+
   <organization>
     <name>Graham Crockford</name>
     <url>https://gruelbox.com</url>
   </organization>
-  
+
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-    <dropwizard.version>1.3.9</dropwizard.version>
-    <apache.commons.version>4.3</apache.commons.version>
-
-    <maven.jar.plugin.version>3.1.1</maven.jar.plugin.version>
-    <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
-    <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
-    <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-    <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
-    <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
-    <license.maven.plugin.version>1.16</license.maven.plugin.version>
-    <findbugs-maven-plugin.version>3.0.5</findbugs-maven-plugin.version>
-    <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
-    <sonar-jacoco-listeners.version>5.11.0.17289</sonar-jacoco-listeners.version>
-    <checkstyle.version>8.18</checkstyle.version>
-
-    <mockito.version>1.10.19</mockito.version>
-    <hamcrest.version>2.1</hamcrest.version>
-    <junit.version>4.12</junit.version>
   </properties>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>io.dropwizard</groupId>
-        <artifactId>dropwizard-core</artifactId>
-        <version>${dropwizard.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-collections4</artifactId>
-        <version>${apache.commons.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.mockito</groupId>
-        <artifactId>mockito-all</artifactId>
-        <version>${mockito.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.hamcrest</groupId>
-        <artifactId>hamcrest-core</artifactId>
-        <version>${hamcrest.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.sonarsource.java</groupId>
-        <artifactId>sonar-jacoco-listeners</artifactId>
-        <version>${sonar-jacoco-listeners.version}</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 
   <dependencies>
     <dependency>
       <groupId>io.dropwizard</groupId>
       <artifactId>dropwizard-core</artifactId>
+      <version>1.3.9</version>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-collections4</artifactId>
+      <version>4.3</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-all</artifactId>
+      <version>1.10.19</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.hamcrest</groupId>
       <artifactId>hamcrest-core</artifactId>
+      <version>2.1</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
@@ -106,7 +59,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven.compiler.plugin.version}</version>
+        <version>3.8.0</version>
         <configuration>
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
@@ -115,17 +68,17 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>${maven.jar.plugin.version}</version>
+        <version>3.1.1</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>${maven.surefire.plugin.version}</version>
+        <version>2.22.1</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>${maven-javadoc-plugin.version}</version>
+        <version>3.0.1</version>
         <configuration>
           <failOnError>true</failOnError>
           <quiet>true</quiet>
@@ -142,7 +95,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
-        <version>${maven-release-plugin.version}</version>
+        <version>2.5.3</version>
         <configuration>
           <tagNameFormat>@{project.version}</tagNameFormat>
         </configuration>
@@ -150,7 +103,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>${maven-source-plugin.version}</version>
+        <version>3.0.1</version>
         <executions>
           <execution>
             <id>attach-sources</id>
@@ -161,97 +114,25 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>findbugs-maven-plugin</artifactId>
-        <version>${findbugs-maven-plugin.version}</version>
-        <configuration>
-          <excludeFilterFile>etc/findbugs-exclude.xml</excludeFilterFile>
-        </configuration>
-        <executions>
-          <execution>
-            <id>sca-findbugs</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>${maven-checkstyle-plugin.version}</version>
-        <dependencies>
-          <dependency>
-            <groupId>com.puppycrawl.tools</groupId>
-            <artifactId>checkstyle</artifactId>
-            <version>${checkstyle.version}</version>
-          </dependency>
-        </dependencies>
-        <configuration>
-          <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
-          <suppressionsLocation>etc/checkstyle-suppressions.xml</suppressionsLocation>
-          <configLocation>etc/checkstyle.xml</configLocation>
-          <encoding>UTF-8</encoding>
-          <consoleOutput>true</consoleOutput>
-          <failsOnError>true</failsOnError>
-          <violationSeverity>warning</violationSeverity>
-          <linkXRef>false</linkXRef>
-        </configuration>
-        <executions>
-          <execution>
-            <id>sca-checkstyle</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
+        <groupId>com.mycila</groupId>
         <artifactId>license-maven-plugin</artifactId>
-        <version>${license.maven.plugin.version}</version>
+        <version>3.0</version>
         <configuration>
-          <processStartTag>===============================================================================L
-          </processStartTag>
-          <processEndTag>===============================================================================E</processEndTag>
-          <sectionDelimiter>================================================================================</sectionDelimiter>
-          <licenseName>apache_v2</licenseName>
-          <canUpdateCopyright>true</canUpdateCopyright>
-          <canUpdateDescription>true</canUpdateDescription>
-          <canUpdateLicense>true</canUpdateLicense>
+          <header>etc/HEADER</header>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+          <excludes>
+            <exclude>src/test/resources/**</exclude>
+            <exclude>src/main/resources/**</exclude>
+          </excludes>
         </configuration>
-        <executions>
-          <execution>
-            <id>download-licenses</id>
-            <goals>
-              <goal>download-licenses</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>generate-license-headers</id>
-            <goals>
-              <goal>update-file-header</goal>
-            </goals>
-            <phase>process-sources</phase>
-            <configuration>
-              <includes>
-                <includes>**/*.java</includes>
-              </includes>
-              <roots>
-                <root>src/main/java</root>
-                <root>src/test/java</root>
-              </roots>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>
-  
+
   <profiles>
-  
+
     <profile>
       <id>coverage-per-test</id>
       <build>
@@ -274,11 +155,12 @@
         <dependency>
           <groupId>org.sonarsource.java</groupId>
           <artifactId>sonar-jacoco-listeners</artifactId>
+          <version>5.11.0.17289</version>
           <scope>test</scope>
         </dependency>
       </dependencies>
     </profile>
-    
+
     <profile>
       <id>release</id>
       <properties>
@@ -318,7 +200,7 @@
         </plugins>
       </build>
     </profile>
-    
+
   </profiles>
 
   <licenses>
@@ -327,7 +209,7 @@
       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
     </license>
   </licenses>
-  
+
   <developers>
     <developer>
       <name>Graham Crockford</name>
@@ -341,14 +223,14 @@
     <system>GitHub Issues</system>
     <url>https://github.com/gruelbox/dropwizard-https-redirect/issues</url>
   </issueManagement>
-  
+
   <scm>
     <connection>scm:git:https://github.com/gruelbox/dropwizard-https-redirect.git</connection>
     <developerConnection>scm:git:git@github.com:gruelbox/dropwizard-https-redirect.git</developerConnection>
     <url>https://github.com/gruelbox/dropwizard-https-redirect</url>
     <tag>HEAD</tag>
   </scm>
-  
+
   <distributionManagement>
     <snapshotRepository>
       <id>ossrh</id>
@@ -359,7 +241,7 @@
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
-  
+
   <ciManagement>
     <system>Travis CI</system>
     <url>https://travis-ci.org/gruelbox/dropwizard-https-redirect</url>
