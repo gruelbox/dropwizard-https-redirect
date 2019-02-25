@@ -21,7 +21,7 @@ Also protects against [HTTP Response Splitting](https://resources.infosecinstitu
 <dependency>
   <groupId>com.gruelbox</groupId>
   <artifactId>dropwizard-https-redirect</artifactId>
-  <version>0.0.3</version>
+  <version>0.0.4</version>
 </dependency>
 ```
 
