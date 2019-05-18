@@ -131,14 +131,14 @@ public final class HttpsEnforcer implements Filter {
     }
 
     // All good
-    LOGGER.error("Unsecured access (url={}) redirected to [{}]", request.getRequestURL(), redirect);
+    LOGGER.error("Unsecured access redirected to [{}]", redirect);
     response.sendRedirect(redirect);
 
   }
 
   String sanitize(String url) {
     if (CR_OR_LF.matcher(url).find()) {
-      LOGGER.warn("Attempted response split attack: [{}]", url);
+      LOGGER.warn("Attempted response split attack");
       return null;
     }
     return url;
