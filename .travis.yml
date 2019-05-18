@@ -1,5 +1,6 @@
 language: java
 install: true
+jdk: openjdk8
 addons:
   sonarcloud:
     organization: "gruelbox"
