@@ -116,7 +116,7 @@ public final class HttpsEnforcer implements Filter {
   private void switchToHttps(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     // Reform the URL
-    final StringBuffer url = new StringBuffer(128);
+    final StringBuilder url = new StringBuilder(128);
     URIUtil.appendSchemeHostPort(url, HTTPS, request.getServerName(), request.getServerPort() == 80 ? 443 : request.getServerPort());
     url.append(request.getRequestURI());
     if (request.getQueryString() != null) {
